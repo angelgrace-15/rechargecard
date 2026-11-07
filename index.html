@@ -104,10 +104,16 @@
             padding: 18px 12px;
         }
 
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
         table {
             width: 100%;
+            min-width: 800px;
             border-collapse: collapse;
-            margin-top: 25px;
             text-align: left;
             table-layout: fixed;
         }
@@ -127,6 +133,7 @@
             background-color: white;
             color: #000;
             border-bottom: 1px solid #ddd;
+            word-break: break-all;
         }
 
         td:first-child {
@@ -151,6 +158,27 @@
             padding: 7px 12px;
             background-color: #dc3545;
             border-radius: 3px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            .network, .pin, .code {
+                display: flex;
+                justify-content: center;
+                margin: 8px 10px;
+            }
+
+            #btn {
+                margin: 5px;
+            }
+
+            input {
+                width: 70%;
+                max-width: 200px;
+            }
         }
     </style>
 </head>
@@ -194,21 +222,23 @@
         <button id="btns" onclick="toGenerate()">Generate</button>
         <button id="bttn" onclick="toSave()">Save Pin</button>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>S/N</th>
-                    <th>Network Operator</th>
-                    <th>Amount</th>
-                    <th>Pin</th>
-                    <th>Status</th>
-                    <th>Date Created</th>
-                    <th>Date Used</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </table>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Network Operator</th>
+                        <th>Amount</th>
+                        <th>Pin</th>
+                        <th>Status</th>
+                        <th>Date Created</th>
+                        <th>Date Used</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
     </div>
 
     <script src="script.js"></script>
